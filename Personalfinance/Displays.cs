@@ -9,6 +9,7 @@ public class Displays
     public void DisplayMenu()
     {
         var readFromFile = functions.LoadTransactionsFromFile();
+
         if (readFromFile != null ) 
         {
             foreach (Bankaccount bankAccount in readFromFile)
