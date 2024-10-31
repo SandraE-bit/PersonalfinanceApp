@@ -77,4 +77,23 @@ public class Functions
 
         return transactions;
     }
+    public void ChangeFilePaths()
+    {
+        while (true)
+        {
+            Console.Write("Välj ny sökväg för att spara fil.: ");
+            string changeSaveToFilePath = Console.ReadLine();
+
+            saveToFilePath = changeSaveToFilePath;
+
+            if (File.Exists(saveToFilePath))
+            {
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Filen exiterar inte, testa igen!");
+            }
+        }
+    }
 }

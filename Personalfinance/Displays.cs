@@ -21,12 +21,17 @@ public class Displays
         Console.WriteLine("-------------------");
         Console.WriteLine("Personal Finance");
         Console.WriteLine("-------------------");
-        Console.WriteLine("1. Lägg till transaktion");
-        Console.WriteLine("2. Visa kontosaldo");
-        Console.WriteLine("3. Visa transaktion över tid");
-        Console.WriteLine("4. Radera en transaktion");
-        Console.WriteLine("5. Spara och avsluta");
+        Console.WriteLine("1. Vart vill du spara transaktionerna?");
+        Console.WriteLine("2. Lägg till transaktion");
+        Console.WriteLine("3. Visa kontosaldo");
+        Console.WriteLine("4. Visa transaktion över tid");
+        Console.WriteLine("5. Radera en transaktion");
+        Console.WriteLine("6. Spara och avsluta");
         Console.WriteLine("-------------------");
+    }
+    public void DisplayChangeFilePaths() 
+    {
+        functions.ChangeFilePaths();
     }
     public void DisplayAddTrancations()
     {

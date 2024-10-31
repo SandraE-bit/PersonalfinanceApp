@@ -8,7 +8,7 @@ namespace Personalfinance;
 public class Program
 {
     static Displays displays = new Displays();
-    
+
     static void Main()
     {
         bool running = true;
@@ -26,18 +26,21 @@ public class Program
             switch (choice)
             {
                 case 1:
-                    AddSalary();
+                    ChangeFilePath();
                     break;
                 case 2:
-                    ShowBalance();
+                    AddSalary();
                     break;
                 case 3:
-                    SumTransactions();
+                    ShowBalance();
                     break;
                 case 4:
-                    RemoveTransaction();
+                    SumTransactions();
                     break;
                 case 5:
+                    RemoveTransaction();
+                    break;
+                case 6:
                     running = false;
                     break;
                 default:
@@ -45,6 +48,10 @@ public class Program
                     break;
             }
         }
+    }
+    static void ChangeFilePath()
+    {
+        displays.DisplayChangeFilePaths();
     }
     static void AddSalary()
     {
