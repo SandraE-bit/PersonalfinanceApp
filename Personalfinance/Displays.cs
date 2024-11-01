@@ -10,7 +10,8 @@ public class Displays
     Functions functions = new Functions();
     List<Bankaccount> bankAccounts = new List<Bankaccount>();
     static TransactionManager transactionManager = new TransactionManager();
-    public void DisplayMenu()
+
+    public Displays()
     {
         var readFromFile = functions.LoadTransactionsFromFile();
 
@@ -21,6 +22,9 @@ public class Displays
                 bankAccounts.Add(bankAccount);
             }
         }
+    }
+    public void DisplayMenu()
+    {
 
         Console.WriteLine("-------------------");
         Console.WriteLine("Personal Finance");
