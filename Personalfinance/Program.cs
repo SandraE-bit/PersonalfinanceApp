@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics;
 using System.Globalization;
 using System.Transactions;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Xml.Linq;
 
 namespace Personalfinance;
 
@@ -67,7 +69,8 @@ public class Program
     }
     static void RemoveTransaction()
     {
-        displays.DisplayRemoveTrancations();
+        displays.DisplayRemoveTransaction();
     }
+   
 }
 

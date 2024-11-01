@@ -1,4 +1,7 @@
 ﻿using System.Globalization;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Xml.Linq;
+using System.Transactions;
 
 namespace Personalfinance;
 
@@ -6,18 +9,19 @@ public class Displays
 {
     Functions functions = new Functions();
     List<Bankaccount> bankAccounts = new List<Bankaccount>();
+    static TransactionManager transactionManager = new TransactionManager();
     public void DisplayMenu()
     {
         var readFromFile = functions.LoadTransactionsFromFile();
 
-        if (readFromFile != null ) 
+        if (readFromFile != null)
         {
             foreach (Bankaccount bankAccount in readFromFile)
             {
                 bankAccounts.Add(bankAccount);
             }
         }
-      
+
         Console.WriteLine("-------------------");
         Console.WriteLine("Personal Finance");
         Console.WriteLine("-------------------");
@@ -29,7 +33,7 @@ public class Displays
         Console.WriteLine("6. Spara och avsluta");
         Console.WriteLine("-------------------");
     }
-    public void DisplayChangeFilePaths() 
+    public void DisplayChangeFilePaths()
     {
         functions.ChangeFilePaths();
     }
@@ -90,9 +94,9 @@ public class Displays
         else
         {
             Console.WriteLine("Ogiltigt val.");
-            
+
         }
-        
+
     }
     public void DisplayShowBalance()
     {
@@ -305,26 +309,37 @@ public class Displays
             }
         }
     }
-
-
-    public void DisplayRemoveTrancations()
+    public void DisplayRemoveTransaction()
     {
-        if (bankAccounts.Count == 0)
-        {
-            Console.WriteLine("Inga transaktioner att ta bort.");
-            return;
-        }
+        Console.WriteLine("Ange namnet på transaktionen du vill ta bort:");
+        string name = Console.ReadLine();
 
-        Console.WriteLine("Ange nummer på transaktionen du vill ta bort:");
-        if (!int.TryParse(Console.ReadLine(), out int index) || index < 1 || index > bankAccounts.Count)
+        Console.WriteLine("Ange datumet för transaktionen (format: YYYY-MM-DD):");
+        if (DateTime.TryParse(Console.ReadLine(), out DateTime date))
         {
-            Console.WriteLine("Ogiltigt val.");
-            return;
-        }
+            var transactionToRemove = bankAccounts
+                .FirstOrDefault(t => t.Name == name && t.Date == DateOnly.FromDateTime(date));
 
-        bankAccounts.RemoveAt(index - 1);
-        Console.WriteLine("Transaktionen har tagits bort.");
+            if (transactionToRemove != null)
+            {
+                bankAccounts.Remove(transactionToRemove);
+
+                transactionManager.UpdateFile(bankAccounts);
+
+                Console.WriteLine("Transaktionen har tagits bort från både listan och filen.");
+            }
+            else
+            {
+                Console.WriteLine("Transaktionen hittades inte.");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Ogiltigt datumformat.");
+        }
     }
-  
+
+
+
 }
 
