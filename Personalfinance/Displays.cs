@@ -338,8 +338,5 @@ public class Displays
             Console.WriteLine("Ogiltigt datumformat.");
         }
     }
-
-
-
 }
 
