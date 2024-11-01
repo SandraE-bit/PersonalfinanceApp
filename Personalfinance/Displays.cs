@@ -22,7 +22,6 @@ public class Displays
     }
     public void DisplayMenu()
     {
-
         Console.WriteLine("-------------------");
         Console.WriteLine("Personal Finance");
         Console.WriteLine("-------------------");
