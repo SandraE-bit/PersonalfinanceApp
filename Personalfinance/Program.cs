@@ -1,10 +1,4 @@
-﻿using System.Diagnostics;
-using System.Globalization;
-using System.Transactions;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using System.Xml.Linq;
-
-namespace Personalfinance;
+﻿namespace Personalfinance;
 
 
 public class Program
@@ -71,6 +65,6 @@ public class Program
     {
         displays.DisplayRemoveTransaction();
     }
-   
+
 }
 

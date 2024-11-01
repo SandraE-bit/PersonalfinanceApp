@@ -3,7 +3,7 @@
 public class Functions
 {
     private static string saveToFilePath = @"c:\Skolan\C#\Individuell uppgift\SaveToFile\SavedTransactions.csv";
-    
+
     public Bankaccount GetBankAccount(string name, decimal amount)
     {
         Bankaccount bankAccount = new()
@@ -94,6 +94,6 @@ public class Functions
             }
         }
     }
-  
+
 }
-    
+

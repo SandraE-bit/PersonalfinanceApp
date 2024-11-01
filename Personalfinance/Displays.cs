@@ -1,7 +1,4 @@
 ﻿using System.Globalization;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using System.Xml.Linq;
-using System.Transactions;
 
 namespace Personalfinance;
 
