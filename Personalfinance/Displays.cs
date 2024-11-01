@@ -314,7 +314,7 @@ public class Displays
         Console.WriteLine("Ange namnet på transaktionen du vill ta bort:");
         string name = Console.ReadLine();
 
-        Console.WriteLine("Ange datumet för transaktionen (format: YYYY-MM-DD):");
+        Console.WriteLine("Ange datumet för transaktionen (format: yyyy-MM-dd):");
         if (DateTime.TryParse(Console.ReadLine(), out DateTime date))
         {
             var transactionToRemove = bankAccounts
